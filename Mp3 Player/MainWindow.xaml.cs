@@ -23,6 +23,7 @@ namespace Mp3_Player
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new WindowViewModel(this);
         }
     }
 }

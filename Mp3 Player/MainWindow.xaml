@@ -5,8 +5,78 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mp3_Player"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        >
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <!--The container-->
+                        <Border Padding="{Binding OuterMarginSize}"
+                                Background="Transparent"
+                                >
+
+                            <Border BorderThickness="5"
+                                    BorderBrush="Blue"
+                                    Background="White"
+                                    CornerRadius="{Binding CornerRadius,FallbackValue=20}"
+                                    Width="400"
+                                    Height="400"
+                                    >
+
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50"/>
+                                        <RowDefinition Height="*"/>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="300"/>
+                                            <ColumnDefinition Width="90"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Text="Mp3 player"
+                                                       Margin="28 0 0 0"
+                                                       Foreground="Red"
+                                                       HorizontalAlignment="Center"
+                                                       VerticalAlignment="Center"
+                                                       FontSize="40"/>
+
+                                        <StackPanel Grid.Column="1"
+                                                    Orientation="Horizontal"
+                                                    >
+                                            <Button Style="{StaticResource BaseButtonsStyle}"
+                                                    Content="{StaticResource FontAwesomeMinimizeIcon}"
+                                                    FontFamily="{StaticResource FontAwesome}"
+                                                    Command="{Binding MinimizeCommand}"/>
+                                            <Button Style="{StaticResource WindowCloseButtonStyle}"
+                                                    Content="{StaticResource FontAwesomeCloseIcon}"
+                                                    FontFamily="{StaticResource FontAwesome}"
+                                                    Command="{Binding CloseCommand}"
+                                                    />
+                                        </StackPanel>
+                                    </Grid>
+                                    <Border Grid.Row="1"
+                                            Padding="10">
+                                        <Grid>
+                                            
+                                        </Grid>
+                                    </Border>
+                                </Grid>
+                                
+                            </Border>
+                            
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 </Window>
