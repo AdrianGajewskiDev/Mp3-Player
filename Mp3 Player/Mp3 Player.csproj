@@ -66,6 +66,8 @@
     <Compile Include="Controls\MusicPlayerMainInterface.xaml.cs">
       <DependentUpon>MusicPlayerMainInterface.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BaseValueConverter.cs" />
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\MusicPlayerMainInterfaceViewModel.cs" />
     <Compile Include="ViewModels\WindowViewModel.cs" />

@@ -4,6 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Mp3_Player.Controls"
+             xmlns:converters="clr-namespace:Mp3_Player.Converters"
+             xmlns:wpf="http://schemas.microsoft.com/netfx/2009/xaml/presentation"
              mc:Ignorable="d" 
              Width="{Binding Width,FallbackValue=380}"
              Height="{Binding Height, FallbackValue=340}"
@@ -55,10 +57,21 @@
                     Content="{StaticResource FontAwesomePlayIcon}"
                     Foreground="Red"
                     Margin="0 0 10 0"
+                    Visibility="{Binding PlayButtonVisible,Converter={converters:BooleanToVisiblityConverter}}"
                     FontSize="60"
                     Width="60"
                     Command="{Binding PlayAudioCommand}"/>
 
+            <Button Grid.Column="1"
+                    Style="{StaticResource IconGrowButton}"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Content="{StaticResource FontAwesomePauseIcon}"
+                    Foreground="Red"
+                    Visibility="{Binding PauseButtonVisible,Converter={converters:BooleanToVisiblityConverter}}"
+                    Margin="0 0 10 0"
+                    FontSize="60"
+                    Width="60"
+                    Command="{Binding PauseAudioCommand}"/>
 
             <Button Grid.Column="2"
                     Style="{StaticResource IconGrowButton}"

@@ -14,6 +14,7 @@ namespace Mp3_Player
         {
             OpenDialogCommand = new RelayCommand(OpenDialogWindow);
             PlayAudioCommand = new RelayCommand(PlayAudio);
+            PauseAudioCommand = new RelayCommand(PauseAudio);
             openFileDialog = new OpenFileDialog();
             mediaPlayer = new MediaPlayer();
         }
@@ -21,6 +22,7 @@ namespace Mp3_Player
         #region Commands
         public ICommand OpenDialogCommand { get; set; }
         public ICommand PlayAudioCommand { get; set; }
+        public ICommand PauseAudioCommand { get; set; }
         #endregion
 
         #region Public Properties
@@ -28,6 +30,8 @@ namespace Mp3_Player
         public double Height { get; set; } = 340;
         public string FileName { get; set; }
         public string Title { get; set; }
+        public bool PlayButtonVisible { get; set; } = true;
+        public bool PauseButtonVisible { get; set; } = false;
         #endregion
 
         #region Private Members
@@ -42,6 +46,7 @@ namespace Mp3_Player
             {
                 openFileDialog.ShowDialog();
                 FileName = openFileDialog.FileName;
+                mediaPlayer.Open(new Uri(FileName));
                 Title = FileName.Split(' ').Last();
             }
             catch(Exception ex)
@@ -53,7 +58,16 @@ namespace Mp3_Player
         
         private void PlayAudio()
         {
-            
+            mediaPlayer.Play();
+            PlayButtonVisible = false;
+            PauseButtonVisible = true;
+        }
+
+        private void PauseAudio()
+        {
+            mediaPlayer.Pause();
+            PlayButtonVisible = true;
+            PauseButtonVisible = false;
         }
         #endregion
     }
