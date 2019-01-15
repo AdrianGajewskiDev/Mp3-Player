@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Mp3_Player"
+        xmlns:controls="clr-namespace:Mp3_Player.Controls"
         mc:Ignorable="d"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -52,21 +53,23 @@
                                         <StackPanel Grid.Column="1"
                                                     Orientation="Horizontal"
                                                     >
-                                            <Button Style="{StaticResource BaseButtonsStyle}"
+                                            <Button Style="{StaticResource IconGrowButton}"
                                                     Content="{StaticResource FontAwesomeMinimizeIcon}"
                                                     FontFamily="{StaticResource FontAwesome}"
+                                                    Width="30"
                                                     Command="{Binding MinimizeCommand}"/>
                                             <Button Style="{StaticResource WindowCloseButtonStyle}"
                                                     Content="{StaticResource FontAwesomeCloseIcon}"
                                                     FontFamily="{StaticResource FontAwesome}"
                                                     Command="{Binding CloseCommand}"
+                                                    Margin="5 0 0 0"
                                                     />
                                         </StackPanel>
                                     </Grid>
                                     <Border Grid.Row="1"
                                             Padding="10">
                                         <Grid>
-                                            
+                                            <controls:MusicPlayerMainInterface/>
                                         </Grid>
                                     </Border>
                                 </Grid>

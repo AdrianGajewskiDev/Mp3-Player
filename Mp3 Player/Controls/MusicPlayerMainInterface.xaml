@@ -1,0 +1,73 @@
+﻿<UserControl x:Class="Mp3_Player.Controls.MusicPlayerMainInterface"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Mp3_Player.Controls"
+             mc:Ignorable="d" 
+             Width="{Binding Width,FallbackValue=380}"
+             Height="{Binding Height, FallbackValue=340}"
+             >
+    <Grid Margin="10 10 0 10 ">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Image Source="/Images/Logo.png" Margin="100,10,100,50"
+               />
+
+        <Button HorizontalAlignment="Right"
+                Margin="0 0 20 0"
+                VerticalAlignment="Top"
+                Height="40"
+                Foreground="Red"
+                FontFamily="{StaticResource FontAwesome}"
+                Content="{StaticResource FontAwesomeFileIcon}"
+                Style="{StaticResource IconGrowButton}"
+                Command="{Binding OpenDialogCommand}"
+                />
+        <TextBox VerticalAlignment="Bottom"
+                 Height="40"
+                 Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
+                 TextAlignment="Left"
+                 VerticalContentAlignment="Center"
+                 IsReadOnly="True"
+                 FontSize="25"/>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="120"/>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="130"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Style="{StaticResource IconGrowButton}"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Content="{StaticResource FontAwesomeLeftArrowIcon}"
+                    Foreground="Black"
+                    FontSize="60"
+                    Width="40"/>
+            
+            <Button Grid.Column="1"
+                    Style="{StaticResource IconGrowButton}"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Content="{StaticResource FontAwesomePlayIcon}"
+                    Foreground="Red"
+                    Margin="0 0 10 0"
+                    FontSize="60"
+                    Width="60"
+                    Command="{Binding PlayAudioCommand}"/>
+
+
+            <Button Grid.Column="2"
+                    Style="{StaticResource IconGrowButton}"
+                    FontFamily="{StaticResource FontAwesome}"
+                    Content="{StaticResource FontAwesomeRightArrowIcon}"
+                    Foreground="Black"
+                    FontSize="60"
+                    Width="40"
+                    Margin="0 0 20 0"/>
+        </Grid>
+    </Grid>
+</UserControl>

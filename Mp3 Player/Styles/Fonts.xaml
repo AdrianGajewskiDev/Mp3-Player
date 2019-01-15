@@ -7,5 +7,10 @@
 
     <system:String x:Key="FontAwesomeMinimizeIcon">&#xf2d1;</system:String>
     <system:String x:Key="FontAwesomeCloseIcon">&#xf00d;</system:String>
+    <system:String x:Key="FontAwesomePlayIcon">&#xf144;</system:String>
+    <system:String x:Key="FontAwesomePauseIcon">&#xf28b;</system:String>
+    <system:String x:Key="FontAwesomeLeftArrowIcon">&#xf100;</system:String>
+    <system:String x:Key="FontAwesomeRightArrowIcon">&#xf101;</system:String>
+    <system:String x:Key="FontAwesomeFileIcon">&#xf1c7;</system:String>
     
 </ResourceDictionary>

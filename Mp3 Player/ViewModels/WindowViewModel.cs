@@ -20,7 +20,6 @@ namespace Mp3_Player
             CloseCommand = new RelayCommand(Close);
         }
         #endregion
-        //Proba
         #region Public Properties    
         public Thickness OuterMarginSize { get; set; } = new Thickness(20);
         public CornerRadius CornerRadius { get; set; } = new CornerRadius(20);
