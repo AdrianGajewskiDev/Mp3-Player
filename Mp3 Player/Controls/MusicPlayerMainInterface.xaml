@@ -19,6 +19,17 @@
         <Image Source="/Images/Logo.png" Margin="100,10,100,50"
                />
 
+        <Button HorizontalAlignment="Left"
+                Margin="20 0 0 0"
+                VerticalAlignment="Top"
+                Height="40"
+                Foreground="Red"
+                FontFamily="{StaticResource FontAwesome}"
+                Content="{StaticResource FontAwesomeFileIcon}"
+                Style="{StaticResource IconGrowButton}"
+                Command="{Binding SelectMultipleFileCommand}"
+                />
+        
         <Button HorizontalAlignment="Right"
                 Margin="0 0 20 0"
                 VerticalAlignment="Top"
@@ -29,13 +40,15 @@
                 Style="{StaticResource IconGrowButton}"
                 Command="{Binding OpenDialogCommand}"
                 />
+
         <TextBox VerticalAlignment="Bottom"
                  Height="40"
+                 Width="300"
                  Text="{Binding Title, UpdateSourceTrigger=PropertyChanged}"
                  TextAlignment="Left"
                  VerticalContentAlignment="Center"
                  IsReadOnly="True"
-                 FontSize="25"/>
+                 FontSize="20"/>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
@@ -48,6 +61,7 @@
                     FontFamily="{StaticResource FontAwesome}"
                     Content="{StaticResource FontAwesomeLeftArrowIcon}"
                     Foreground="Black"
+                    Command="{Binding PlayPreviousSongCommand}"
                     FontSize="60"
                     Width="40"/>
             
@@ -79,6 +93,7 @@
                     Content="{StaticResource FontAwesomeRightArrowIcon}"
                     Foreground="Black"
                     FontSize="60"
+                    Command="{Binding PlayNextSongCommand}"
                     Width="40"
                     Margin="0 0 20 0"/>
         </Grid>
